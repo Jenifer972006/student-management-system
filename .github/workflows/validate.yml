@@ -1,0 +1,23 @@
+
+name: CI/CD GitHub Validation
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate repository
+        run: |
+          echo "Repository validation started"
+          test -f README.md
+          echo "README validation successful"
+
+      - name: Complete validation
+        run: echo "All validation steps completed successfully"
